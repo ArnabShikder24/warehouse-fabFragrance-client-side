@@ -12,7 +12,7 @@ const Navigation = () => {
                         <Link className='nav-link' to="/home">Home</Link>
                     </Nav>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Brand href="#home">Fab Fragrance</Navbar.Brand>
+                    <Link className='navbar-brand' to="/home">Fab Fragrance</Link>
                     <Nav className='ms-auto'>
                         <Link className='nav-link' to="/home">Home</Link>
                     </Nav>

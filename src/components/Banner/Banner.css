@@ -1,0 +1,20 @@
+.banner {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+}
+.carousel-caption {
+    text-align: left !important;
+    left: 30px !important;
+    right: 0 !important;
+    top: 30% !important;
+}
+.side-banner .carousel-control-prev-icon {
+    background-image: none !important;
+}
+.side-banner .carousel-control-next-icon {
+    background-image: none !important;
+}
+.side-banner .carousel-indicators .active {
+    opacity: 0;
+}
