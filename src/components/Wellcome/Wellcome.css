@@ -1,0 +1,11 @@
+.wellcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #16a085;
+    color: #fff;
+}
+.part {
+    padding: 0 10px;
+}
