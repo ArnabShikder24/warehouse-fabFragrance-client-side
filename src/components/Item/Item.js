@@ -1,8 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Item.css'
 
 const Item = ({item}) => {
     const {title, discription, price, quantity, supplier, img} = item;
+    const navigate = useNavigate();
+    const handleUpadate = () => {
+        navigate('/inventory/manage')
+    }
     return (
         <div className='item-card'>
             <img src={img} alt="" />
@@ -12,7 +17,7 @@ const Item = ({item}) => {
                 <p>Price: ${price}</p>
                 <p>Quantity: {quantity}</p>
                 <h6>Supplier Name: {supplier}</h6>
-                <button className='btn-update my-2'><span>stock update</span></button>
+                <button onClick={handleUpadate} className='btn-update my-2'><span>stock update</span></button>
             </div>
         </div>
     );
