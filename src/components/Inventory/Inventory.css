@@ -1,0 +1,12 @@
+.underline {
+    width: 70px;
+    height: 5px;
+    background-color: #16a085;
+    margin: 0 auto;
+}
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 70px;
+    grid-row-gap: 30px;
+}
