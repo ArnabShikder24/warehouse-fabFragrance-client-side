@@ -13,10 +13,10 @@ const Navigation = () => {
                         <Link className='nav-link' to="/inventory">Inventory</Link>
                     </Nav>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Link className='navbar-brand' to="/home">Fab Fragrance</Link>
+                    <Link className='navbar-brand font-monospace' to="/home">Fab Fragrance</Link>
                     <Nav className='ms-auto'>
-                        <Link className='nav-link' to="/home">Sign In</Link>
-                        <Link className='nav-link' to="/home">Sign Up</Link>
+                        <Link className='nav-link' to="/login">Login</Link>
+                        <Link className='nav-link' to="/signup">Sign Up</Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>
