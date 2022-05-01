@@ -1,8 +1,17 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Navigation = () => {
+    const [user] = useAuthState(auth);
+
+    //signUp function
+    const logOutHandle =() => {
+        signOut(auth)
+    }
     return (
         <div>
             <Navbar className='py-4' bg="light" expand="lg">
@@ -13,8 +22,15 @@ const Navigation = () => {
                     <Nav className="ms-auto">
                         <Link className='nav-link' to="/home">Home</Link>
                         <Link className='nav-link' to="/inventory">Inventory</Link>
-                        <Link className='nav-link' to="/login">Login</Link>
-                        <Link className='nav-link' to="/signup">Sign Up</Link>
+                        {
+                            user ?
+                            <button onClick={logOutHandle} className='social-btn'><span>LogOut</span></button>
+                            :
+                            <>
+                            <Link className='nav-link' to="/login">Login</Link>
+                            <Link className='nav-link' to="/signup">Sign Up</Link>
+                            </>
+                        }
                     </Nav>
                     </Navbar.Collapse>
                 </Container>

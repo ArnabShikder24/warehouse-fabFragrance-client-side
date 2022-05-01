@@ -1,22 +1,54 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 import './Login.css';
 
 const Login = () => {
+    const [ signInWithEmailAndPassword ,user, loading, error ] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, userG, loadingG, errorG] = useSignInWithGoogle(auth);
+
+    if (user) {
+        console.log(user)
+    }
+    if (userG) {
+        console.log(userG)
+    }
+
+    //login user with email password
+    const logInHandle = e => {
+        e.preventDefault()
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+
+        signInWithEmailAndPassword(email, password);
+
+    }
+
+    //google signin
+    const handleGoogleLogin = () => {
+        signInWithGoogle()
+    }
     return (
         <div className='login text-center my-5'>
             <div>
                 <h2>Login</h2><div className='underline mb-4'></div>
-                <form>
+                <form onSubmit={logInHandle}>
                     <input className='w-25 mb-3 p-2' type="email" name='email' placeholder='Email' required/><br />
                     <input className='w-25 p-2 mb-3' type="password" name='password' placeholder='Password' required/><br />
+                    <p className='text-danger'>{error && error.message}</p>
+                    <p className='text-danger'>{errorG && errorG.message}</p>
+                    <p>{loading && 'Loading...'}</p>
+                    <p>{loadingG && 'Loading...'}</p>
                     <input className='w-25 p-2' type="submit" value="Login" />
                 </form>
+                <p className='my-2'>New in here? <Link className='text-decoration-none' to='/signup'>Create Account</Link></p>
                 <div className='or'>
                     <div></div>
                     <p>or</p>
                     <div></div>
                 </div>
-                <button className='social-btn'><span>Login With Google</span></button>
+                <button onClick={handleGoogleLogin} className='social-btn'><span>Login With Google</span></button>
             </div>
         </div>
     );
