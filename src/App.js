@@ -8,6 +8,8 @@ import Wellcome from './components/Wellcome/Wellcome';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
             <Route path='/signup' element={<SignUp></SignUp>}></Route>
           </Routes>
           <Footer></Footer>
+          <ToastContainer />
     </div>
   );
 }

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const SignUp = () => {
     const [ createUserWithEmailAndPassword, user, loading, error ] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle, userG, loadingG, errorG] = useSignInWithGoogle(auth);
+    const [sendEmailVerification] = useSendEmailVerification(auth);
     const [updateProfile] = useUpdateProfile(auth);
     const [match, setMatch] = useState('');
 
@@ -31,6 +33,8 @@ const SignUp = () => {
         setMatch('');
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
+        await sendEmailVerification();
+        toast('Sent Email Verification email');
     }
 
     //handle google signUp
@@ -55,7 +59,7 @@ const SignUp = () => {
                     <p className='text-success'>{user && 'Signup Successfull'}</p>
                     <input className='w-25 p-2' type="submit" value="Sign Up" />
                 </form>
-                <p className='my-2'>Already have an Account? <Link className='text-decoration-none' to='/login'>Login</Link></p>
+                <p className='mt-2 mb-0'>Already have an Account? <Link className='text-decoration-none' to='/login'>Login</Link></p>
                 <div className='or'>
                     <div></div>
                     <p>or</p>
