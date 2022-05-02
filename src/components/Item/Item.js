@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import './Item.css'
 
 const Item = ({item}) => {
-    const {title, discription, price, quantity, supplier, img} = item;
+    const {_id, title, discription, price, quantity, supplier, img} = item;
     const navigate = useNavigate();
     const handleUpadate = () => {
-        navigate('/inventory/manage')
+        navigate(`/inventory/manage/${_id}`)
     }
     return (
         <div className='item-card'>
