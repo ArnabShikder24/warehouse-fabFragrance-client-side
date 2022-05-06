@@ -42,7 +42,7 @@
 }
   
 .btn-update:hover{
-    color: #fff;
+    color: #fff !important;
 }
   
 .btn-update:hover:after{

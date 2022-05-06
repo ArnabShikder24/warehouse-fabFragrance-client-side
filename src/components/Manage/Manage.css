@@ -1,0 +1,19 @@
+.manage img {
+    width: 75%;
+}
+.reStock input[type=number] {
+    border: none;
+    background-color: #41b49f28;
+    height: 30px;
+}
+.reStock input[type=submit] {
+    background-color: #2c9682;
+    font-weight: 600;
+    color: white;
+    transition: all .3s ease;
+    padding: 3px 7px;
+    border-radius: 0 5px 5px 0;
+}
+.reStock input[type=submit]:hover {
+    background-color: #42b19c;
+}

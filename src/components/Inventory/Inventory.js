@@ -12,7 +12,7 @@ const Inventory = () => {
                 <div className='d-flex justify-content-center'>
                     <div className='items-grid'>
                         {
-                            items.map(item => <Item 
+                            items.slice(0, 6).map(item => <Item 
                                 key={item._id}
                                 item={item}
                             ></Item>)

@@ -5,3 +5,9 @@
     align-items: center;
     margin-bottom: 30px;
 }
+.perfect {
+    background-color: rgb(236, 243, 252);
+    border-radius: 15px;
+    padding: 10px;
+    line-height: 20px;
+}
