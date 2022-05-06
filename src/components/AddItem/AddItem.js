@@ -1,14 +1,17 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import './AddItem.css';
 
 const AddItem = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        console.log(data)
         axios.post('http://localhost:5000/inventory', data)
-        .then(res => console.log(res.data))
+        .then(res => {
+            console.log(res.data)
+            toast('Product Add Successful')
+        })
     
     };
     return (

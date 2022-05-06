@@ -1,12 +1,24 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import useInventory from '../../hooks/useInventory';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Maintain.css';
 
 const Maintain = () => {
-    const [items] = useInventory();
+    const [items, setItems] = useInventory();
     const navigate = useNavigate();
+
+    const handleDeleteItem = id => {
+        const agree = window.confirm('Are You Sure?');
+        if(agree) {
+            axios.delete(`http://localhost:5000/inventory/${id}`)
+            .then(res => {
+                const rest = items.filter(item => item._id !== id);
+                setItems(rest);
+            })
+        }
+    }
     return (
         <div className='container pb-5 my-5'>
             <h2 className='text-center'>Manage Inventory</h2><div className='underline mb-5'></div>
@@ -34,7 +46,7 @@ const Maintain = () => {
                             <td>{item.quantity}</td>
                             <td>{item.sold}</td>
                             <td>{item.supplier}</td>
-                            <td><button className='btn btn-danger'>Delete</button></td>
+                            <td><button onClick={() => handleDeleteItem(item._id)} className='btn btn-danger'>Delete</button></td>
                             </tr>
                         )
                     }
