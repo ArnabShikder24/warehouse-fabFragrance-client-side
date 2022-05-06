@@ -2,9 +2,15 @@ import React from 'react';
 import './Inventory.css'
 import useInventory from '../../hooks/useInventory';
 import Item from '../Item/Item';
+import { useNavigate } from 'react-router-dom';
 
 const Inventory = () => {
     const [items] = useInventory();
+    const navigate = useNavigate();
+
+    const goNavigate = () => {
+        navigate('/manage-inventory');
+    }
     return (
         <div className='container my-5 py-4'>
             <h2 className='text-center'>Inventory</h2><div className='underline'></div>
@@ -18,6 +24,9 @@ const Inventory = () => {
                             ></Item>)
                         }
                     </div>
+                </div>
+                <div className='text-center'>
+                <button onClick={goNavigate} className='btn-update mt-5'><span>Manage Inventories</span></button>
                 </div>
             </div>
         </div>

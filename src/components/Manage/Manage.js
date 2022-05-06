@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-bootstrap';
-import {useParams} from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import useSingelItem from '../../hooks/useSingelItem';
 import './Manage.css';
 
@@ -8,6 +8,11 @@ const Manage = () => {
     const {manageId} = useParams();
     const [item] = useSingelItem(manageId);
     const { title, discription, price, quantity, supplier, img, sold} = item;
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate('/manage-inventory');
+    }
     return (
         <div className='container my-5 pb-5'>
             <div className='manage'>
@@ -34,7 +39,7 @@ const Manage = () => {
                         <h6>Sold: {sold}</h6>
                         <h6>Supplier Name: {supplier}</h6>
                         <button className='btn-update mt-5 me-5'><span>delivered</span></button>
-                        <button className='btn-update mt-5'><span>Manage Inventories</span></button>
+                        <button onClick={handleNavigate} className='btn-update mt-5'><span>Manage Inventories</span></button>
                     </Col>
                 </Row>
             </div>
