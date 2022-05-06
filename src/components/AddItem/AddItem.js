@@ -1,10 +1,29 @@
+import axios from 'axios';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import './AddItem.css';
 
 const AddItem = () => {
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => {
+        console.log(data)
+        axios.post('http://localhost:5000/inventory', data)
+        .then(res => console.log(res.data))
+    
+    };
     return (
-        <div>
-            
+        <div className='container text-center my-5'>
+            <h2 className='text-center'>Add New Item</h2><div className='underline mb-5'></div>
+            <form onSubmit={handleSubmit(onSubmit)}>
+            <input className='w-50 mb-4 add-item' placeholder='Name of Product' {...register("title")} required/> <br />
+            <textarea className='w-50 mb-4 text-area' placeholder='Description' {...register("discription")} required/><br />
+            <input className='w-50 mb-4 add-item' placeholder='Image Address Link' {...register("img")} required/><br />
+            <input className='w-50 mb-4 add-item' type='number' placeholder='Price' {...register("price")} required/><br />
+            <input className='w-50 mb-4 add-item' type='number' placeholder='Quantity' {...register("quantity")} required/><br />
+            <input className='w-50 mb-4 add-item' type='number' placeholder='Sold' {...register("sold")} required/><br />
+            <input className='w-50 mb-4 add-item' placeholder='Supplier Name' {...register("supplier")} required/><br />
+            <input className='py-2 px-2' type="submit" value='Add New Item'/>
+            </form>
         </div>
     );
 };

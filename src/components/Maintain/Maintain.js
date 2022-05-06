@@ -1,14 +1,16 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import useInventory from '../../hooks/useInventory';
+import { useNavigate } from 'react-router-dom'
 import './Maintain.css';
 
 const Maintain = () => {
     const [items] = useInventory();
+    const navigate = useNavigate();
     return (
         <div className='container pb-5 my-5'>
             <h2 className='text-center'>Manage Inventory</h2><div className='underline mb-5'></div>
-            <h4 className='mb-5'>Add New Product Here <button className='btn-update'><span>Add New Item</span></button></h4>
+            <h4 className='mb-5'>Add New Product Here <button onClick={() => navigate('/add-item')} className='btn-update'><span>Add New Item</span></button></h4>
             <Table striped bordered>
                 <thead>
                     <tr>
@@ -24,7 +26,7 @@ const Maintain = () => {
                 </thead>
                 <tbody>
                     {
-                        items.map(item => <tr>
+                        items.map(item => <tr key={item._id}>
                             <td>{item._id}</td>
                             <td>{item.title}</td>
                             <td><img className='table-img' src={item.img} alt={item.title} /></td>
