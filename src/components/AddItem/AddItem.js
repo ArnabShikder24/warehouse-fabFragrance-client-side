@@ -12,8 +12,8 @@ const AddItem = () => {
             console.log(res.data)
             toast('Product Add Successful')
         })
-    
     };
+    
     return (
         <div className='container text-center my-5'>
             <h2 className='text-center'>Add New Item</h2><div className='underline mb-5'></div>

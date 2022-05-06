@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Maintain.css';
 
-const Maintain = () => {
+const Maintain = e => {
     const [items, setItems] = useInventory();
     const navigate = useNavigate();
 
