@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -15,18 +16,23 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
-    if (user || userG) {
+    if (user) {
+       console.log(user);
+    }
+    if(userG) {
         navigate(from, {replace: true});
     }
 
     //login user with email password
-    const logInHandle = e => {
+    const logInHandle = async e => {
         e.preventDefault()
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        signInWithEmailAndPassword(email, password);
-
+        await signInWithEmailAndPassword(email, password);
+        const {data} = await axios.post('http://localhost:5000/getToken', {email})
+        localStorage.setItem('accessToken', data.accessToken);
+        navigate(from, {replace: true});
     }
 
     //google signin

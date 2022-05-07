@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const SignUp = () => {
     const [ createUserWithEmailAndPassword, user, loading, error ] = useCreateUserWithEmailAndPassword(auth);
@@ -28,6 +29,8 @@ const SignUp = () => {
         await updateProfile({ displayName: name });
         await sendEmailVerification();
         toast('Successful SignUp. Sent Email Verification email');
+        const {data} = await axios.post('http://localhost:5000/getToken', {email})
+        localStorage.setItem('accessToken', data.accessToken);
     }
 
     //handle google signUp
