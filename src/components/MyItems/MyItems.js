@@ -1,28 +1,36 @@
-import React from 'react';
-import { Table } from 'react-bootstrap';
-import useInventory from '../../hooks/useInventory';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './Maintain.css';
+import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
+import './MyItems.css'
 
-const Maintain = e => {
-    const [items, setItems] = useInventory();
+const MyItems = () => {
+    const [user] = useAuthState(auth);
+    const [myItems, setMyItems] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const email = user?.email;
+        axios.get(`http://localhost:5000/myItem?email=${email}`)
+        .then(res => setMyItems(res.data))
+    }, [user]);
 
     const handleDeleteItem = id => {
         const agree = window.confirm('Are You Sure?');
         if(agree) {
             axios.delete(`http://localhost:5000/inventory/${id}`)
             .then(res => {
-                const rest = items.filter(item => item._id !== id);
-                setItems(rest);
+                const rest = myItems.filter(item => item._id !== id);
+                setMyItems(rest);
             })
         }
     }
+
     return (
-        <div className='container pb-5 my-5'>
-            <h2 className='text-center'>Manage Inventory</h2><div className='underline mb-5'></div>
-            <h4 className='mb-5'>Add New Product Here <button onClick={() => navigate('/add-item')} className='btn-update'><span>Add New Item</span></button></h4>
+        <div className='container my-5'>
+            <h2 className='text-center'>My Items</h2><div className='underline mb-5'></div>
             <Table striped bordered>
                 <thead>
                     <tr>
@@ -39,7 +47,7 @@ const Maintain = e => {
                 </thead>
                 <tbody>
                     {
-                        items.map(item => <tr key={item._id}>
+                        myItems.map(item => <tr key={item._id}>
                             <td>{item._id}</td>
                             <td>{item.title}</td>
                             <td><img className='table-img' src={item.img} alt={item.title} /></td>
@@ -58,4 +66,4 @@ const Maintain = e => {
     );
 };
 
-export default Maintain;
+export default MyItems;

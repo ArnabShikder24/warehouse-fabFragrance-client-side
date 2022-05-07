@@ -13,7 +13,7 @@ const Item = ({item}) => {
             <img src={img} alt="" />
             <div className='item-info p-2'>
                 <h3>{title}</h3>
-                <p>{discription}</p>
+                <p>{discription.slice(0, 150)}...</p>
                 <p>Price: ${price}</p>
                 <p>Quantity: {quantity}</p>
                 <h6>Supplier Name: {supplier}</h6>

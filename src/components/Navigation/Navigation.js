@@ -24,7 +24,12 @@ const Navigation = () => {
                         <Link className='nav-link' to="/inventory">Inventory</Link>
                         {
                             user ?
+                            <>
+                            <Link className='nav-link' to="/manage-inventory">Manage Inventory</Link>
+                            <Link className='nav-link' to="/add-item">Add Item</Link>
+                            <Link className='nav-link' to="/my-items">My items</Link>
                             <button onClick={logOutHandle} className='social-btn'><span>LogOut</span></button>
+                            </>
                             :
                             <>
                             <Link className='nav-link' to="/login">Login</Link>
