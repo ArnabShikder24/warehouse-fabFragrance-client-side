@@ -22,6 +22,7 @@ const Navigation = () => {
                     <Nav className="ms-auto">
                         <Link className='nav-link' to="/home">Home</Link>
                         <Link className='nav-link' to="/inventory">Inventory</Link>
+                        <Link className='nav-link' to="/blogs">Blogs</Link>
                         {
                             user ?
                             <>

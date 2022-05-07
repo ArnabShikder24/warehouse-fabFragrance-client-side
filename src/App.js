@@ -15,6 +15,7 @@ import Maintain from './components/Maintain/Maintain';
 import AddItem from './components/AddItem/AddItem';
 import MyItems from './components/MyItems/MyItems';
 import NotFound from './components/NotFound/NotFound';
+import Blogs from './components/Blogs/Blogs';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path='/' element={<Home></Home>}></Route>
             <Route path='/home' element={<Home></Home>}></Route>
             <Route path='/inventory' element={<Inventory></Inventory>}></Route>
+            <Route path='/blogs' element={<Blogs></Blogs>}></Route>
             <Route path='/inventory/manage/:manageId' element={<RequireAuth><Manage></Manage></RequireAuth>}></Route>
             <Route path='/manage-inventory' element={<RequireAuth><Maintain></Maintain></RequireAuth>}></Route>
             <Route path='/add-item' element={<RequireAuth><AddItem></AddItem></RequireAuth>}></Route>
