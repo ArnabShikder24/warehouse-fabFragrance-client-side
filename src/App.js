@@ -14,6 +14,7 @@ import RequireAuth from './components/RequireAuth/RequireAuth';
 import Maintain from './components/Maintain/Maintain';
 import AddItem from './components/AddItem/AddItem';
 import MyItems from './components/MyItems/MyItems';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path='/my-items' element={<RequireAuth><MyItems></MyItems></RequireAuth>}></Route>
             <Route path='/login' element={<Login></Login>}></Route>
             <Route path='/signup' element={<SignUp></SignUp>}></Route>
+            <Route path='*' element={<NotFound></NotFound>}></Route>
           </Routes>
           <Footer></Footer>
           <ToastContainer />
