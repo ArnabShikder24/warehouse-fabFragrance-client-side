@@ -12,13 +12,6 @@ const SignUp = () => {
     const [updateProfile] = useUpdateProfile(auth);
     const [match, setMatch] = useState('');
 
-    if(user) {
-        console.log(user)
-    }
-    if(userG) {
-        console.log(userG)
-    }
-
     //create user with email password
     const signUphandle = async e => {
         e.preventDefault()
@@ -34,7 +27,7 @@ const SignUp = () => {
         await createUserWithEmailAndPassword(email, password);
         await updateProfile({ displayName: name });
         await sendEmailVerification();
-        toast('Sent Email Verification email');
+        toast('Successful SignUp. Sent Email Verification email');
     }
 
     //handle google signUp
@@ -57,6 +50,7 @@ const SignUp = () => {
                     <p>{loading && 'Loading...'}</p>
                     <p>{loadingG && 'Loading...'}</p>
                     <p className='text-success'>{user && 'Signup Successfull'}</p>
+                    <p className='text-success'>{userG && 'Signup Successfull'}</p>
                     <input className='w-25 p-2' type="submit" value="Sign Up" />
                 </form>
                 <p className='mt-2 mb-0'>Already have an Account? <Link className='text-decoration-none' to='/login'>Login</Link></p>
