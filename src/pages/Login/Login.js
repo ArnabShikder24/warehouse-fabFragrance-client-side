@@ -17,10 +17,7 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
-    if (user) {
-       console.log(user);
-    }
-    if(userG) {
+    if (user || userG) {
         navigate(from, {replace: true});
     }
 
@@ -33,7 +30,6 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password);
         const {data} = await axios.post('https://damp-mesa-95348.herokuapp.com/getToken', {email})
         localStorage.setItem('accessToken', data.accessToken);
-        navigate(from, {replace: true});
     }
 
     //google signin
