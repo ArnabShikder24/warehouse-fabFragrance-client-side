@@ -16,8 +16,19 @@ import AddItem from './components/AddItem/AddItem';
 import MyItems from './components/MyItems/MyItems';
 import NotFound from './components/NotFound/NotFound';
 import Blogs from './components/Blogs/Blogs';
+import { useState } from 'react';
+import Loading from './components/Loading/Loading';
 
 function App() {
+  const [ prelaoder, setPreload ] = useState(true);
+  setTimeout(() => setPreload(false), 2800)
+
+  if (prelaoder) {
+
+  return <div style={{height:"100vh"}} className='d-flex justify-content-center align-items-center'> <Loading></Loading>  </div>
+
+  }
+
   return (
     <div className="App">
           <Wellcome></Wellcome>
