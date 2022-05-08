@@ -7,7 +7,7 @@ This website makes for perfume stock management. this website helps us to manage
 
 ## features and functionality
 - this website makes by react js. This website's main features is stock update, restock, manage, login, signIn, add items, remove items, get Own item etc.
-- libary and framework React Boostrap, react hooks form, react firebase hooks, react tostify, react font awesome, axios and vanila css etc.
+- libary and framework React Boostrap, react hooks form, react firebase hooks, react tostify, react font awesome, axios, sweetalert and vanila css etc.
 - on this manage inventory we have deliverd button and when will clicked here items quantity dicreces. and has alse restock button for update quantiy.
 - and it is dynamic webste we can post any item an we can delete and manage any items.
 - and there has My item route. it's makes for only own uploaded data or item. nobody can not seen this.

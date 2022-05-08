@@ -3,6 +3,7 @@ import { Table } from 'react-bootstrap';
 import useInventory from '../../hooks/useInventory';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import swal from 'sweetalert';
 import './Maintain.css';
 
 const Maintain = e => {
@@ -10,14 +11,25 @@ const Maintain = e => {
     const navigate = useNavigate();
 
     const handleDeleteItem = id => {
-        const agree = window.confirm('Are You Sure?');
-        if(agree) {
-            axios.delete(`https://damp-mesa-95348.herokuapp.com/inventory/${id}`)
-            .then(res => {
-                const rest = items.filter(item => item._id !== id);
-                setItems(rest);
-            })
-        }
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this product!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                axios.delete(`https://damp-mesa-95348.herokuapp.com/inventory/${id}`)
+                .then(res => {
+                    const rest = items.filter(item => item._id !== id);
+                    setItems(rest);
+                })
+              swal("Poof! Your product has been deleted!", {
+                icon: "success",
+              });
+            }
+          });
     }
     return (
         <div className='container pb-5 my-5'>

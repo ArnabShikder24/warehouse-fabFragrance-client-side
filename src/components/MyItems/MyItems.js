@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import auth from '../../firebase.init';
 import './MyItems.css'
 
@@ -35,14 +36,25 @@ const MyItems = () => {
     }, [user]);
 
     const handleDeleteItem = id => {
-        const agree = window.confirm('Are You Sure?');
-        if(agree) {
-            axios.delete(`https://damp-mesa-95348.herokuapp.com/inventory/${id}`)
-            .then(res => {
-                const rest = myItems.filter(item => item._id !== id);
-                setMyItems(rest);
-            })
-        }
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this product!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          })
+          .then((willDelete) => {
+            if (willDelete) {
+                axios.delete(`https://damp-mesa-95348.herokuapp.com/inventory/${id}`)
+                .then(res => {
+                    const rest = myItems.filter(item => item._id !== id);
+                    setMyItems(rest);
+                })
+              swal("Poof! Your product has been deleted!", {
+                icon: "success",
+              });
+            }
+          });
     }
 
     return (
