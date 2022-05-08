@@ -43,10 +43,10 @@ const SignUp = () => {
             <div>
                 <h2>Sign Up</h2><div className='underline mb-4'></div>
                 <form onSubmit={signUphandle}>
-                    <input className='w-25 mb-3 p-2' type="text" name='name' placeholder='Name' required/><br />
-                    <input className='w-25 mb-3 p-2' type="email" name='email' placeholder='Email' required/><br />
-                    <input className='w-25 p-2 mb-3' type="password" name='password' placeholder='Password' required/><br />
-                    <input className='w-25 p-2 mb-2' type="password" name='confirm' placeholder='Confirm Password' required/><br />
+                    <input className='custom-width mb-3 p-2' type="text" name='name' placeholder='Name' required/><br />
+                    <input className='custom-width mb-3 p-2' type="email" name='email' placeholder='Email' required/><br />
+                    <input className='custom-width p-2 mb-3' type="password" name='password' placeholder='Password' required/><br />
+                    <input className='custom-width p-2 mb-2' type="password" name='confirm' placeholder='Confirm Password' required/><br />
                     <p className='text-danger'>{match}</p>
                     <p className='text-danger'>{error && error.message}</p>
                     <p className='text-danger'>{errorG && errorG.message}</p>

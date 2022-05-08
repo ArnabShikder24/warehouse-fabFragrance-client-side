@@ -56,8 +56,8 @@ const Login = () => {
             <div>
                 <h2>Login</h2><div className='underline mb-4'></div>
                 <form onSubmit={logInHandle}>
-                    <input onBlur={e => setResetEmail(e.target.value)} className='w-25 mb-3 p-2' type="email" name='email' placeholder='Email' required/><br />
-                    <input className='w-25 p-2 mb-3' type="password" name='password' placeholder='Password' required/><br />
+                    <input onBlur={e => setResetEmail(e.target.value)} className='custom-width mb-3 p-2' type="email" name='email' placeholder='Email' required/><br />
+                    <input className='custom-width p-2 mb-3' type="password" name='password' placeholder='Password' required/><br />
                     <p className='text-danger'>{error && error.message}</p>
                     <p className='text-danger'>{errorG && errorG.message}</p>
                     <p>{loading && 'Loading...'}</p>

@@ -11,6 +11,9 @@ form input[type=submit] {
 form input[type=submit]:hover {
     background-color: #2dcaad;
 }
+.custom-width {
+    width: 25%;
+}
 .or {
     display: flex;
     align-items: center;
@@ -58,4 +61,24 @@ form input[type=submit]:hover {
   
 .social-btn:hover:after{
     width: 100%;
+}
+@media only screen and (max-width: 1130px) {
+    .custom-width {
+        width: 35%;
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .custom-width {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .custom-width {
+        width: 75%;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .custom-width {
+        width: 90%;
+    }
 }

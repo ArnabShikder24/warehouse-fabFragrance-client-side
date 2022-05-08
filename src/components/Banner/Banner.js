@@ -50,7 +50,7 @@ const Banner = () => {
             </Carousel.Item>
             </Carousel>
             </div>
-            <div>
+            <div className='side-grid'>
                 <div className='side-banner'>
                 <Carousel variant="dark">
                     <Carousel.Item>
@@ -66,7 +66,7 @@ const Banner = () => {
                     </Carousel.Item>
                 </Carousel>
                 </div>
-                <div className='mt-2 side-banner'>
+                <div className='sidemargin side-banner'>
                 <Carousel variant="dark">
                     <Carousel.Item>
                     <img

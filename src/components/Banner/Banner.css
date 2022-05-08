@@ -9,6 +9,9 @@
     right: 0 !important;
     top: 30% !important;
 }
+.sidemargin {
+    margin-top: 11px;
+}
 .carousel-control-prev-icon {
     background-image: none !important;
 }
@@ -17,4 +20,28 @@
 }
 .side-banner .carousel-indicators .active {
     opacity: 0;
+}
+
+@media only screen and (max-width: 992px) {
+    .banner {
+        grid-template-columns:1fr;
+    }
+    .side-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+    .sidemargin {
+        margin-top: 0;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .side-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 20px;
+    }
+    .sidemargin {
+        margin-top: 11px;
+    } 
 }
