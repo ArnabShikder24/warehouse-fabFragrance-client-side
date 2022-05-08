@@ -5,6 +5,7 @@ import { useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import { Spinner } from 'react-bootstrap';
 
 const SignUp = () => {
     const [ createUserWithEmailAndPassword, user, loading, error ] = useCreateUserWithEmailAndPassword(auth);
@@ -50,8 +51,8 @@ const SignUp = () => {
                     <p className='text-danger'>{match}</p>
                     <p className='text-danger'>{error && error.message}</p>
                     <p className='text-danger'>{errorG && errorG.message}</p>
-                    <p>{loading && 'Loading...'}</p>
-                    <p>{loadingG && 'Loading...'}</p>
+                    <p>{loading && <Spinner animation="border" size="sm" />}</p>
+                    <p>{loadingG && <Spinner animation="border" size="sm" />}</p>
                     <p className='text-success'>{user && 'Signup Successfull'}</p>
                     <p className='text-success'>{userG && 'Signup Successfull'}</p>
                     <input className='w-25 p-2' type="submit" value="Sign Up" />

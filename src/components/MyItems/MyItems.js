@@ -48,7 +48,7 @@ const MyItems = () => {
     return (
         <div className='container my-5'>
             <h2 className='text-center'>My Items</h2><div className='underline mb-5'></div>
-            <Table striped bordered>
+            <Table striped bordered responsive>
                 <thead>
                     <tr>
                     <th>ID</th>

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -60,8 +61,8 @@ const Login = () => {
                     <input className='custom-width p-2 mb-3' type="password" name='password' placeholder='Password' required/><br />
                     <p className='text-danger'>{error && error.message}</p>
                     <p className='text-danger'>{errorG && errorG.message}</p>
-                    <p>{loading && 'Loading...'}</p>
-                    <p>{loadingG && 'Loading...'}</p>
+                    <p>{loading && <Spinner animation="border" size="sm" />}</p>
+                    <p>{loadingG && <Spinner animation="border" size="sm" />}</p>
                     <input className='w-25 p-2' type="submit" value="Login" />
                 </form>
                 <p className='my-2'>Forget Password? <button onClick={handleResetPassword} className='btn btn-link text-decoration-none'>Reset Password</button></p>

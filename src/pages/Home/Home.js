@@ -1,4 +1,5 @@
 import React from 'react';
+import About from '../../components/About/About';
 import Banner from '../../components/Banner/Banner';
 import Inventory from '../../components/Inventory/Inventory';
 import Perfect from '../../components/Perfect/Perfect';
@@ -11,6 +12,7 @@ const Home = () => {
             <Inventory></Inventory>
             <Services></Services>
             <Perfect></Perfect>
+            <About></About>
         </>
     );
 };

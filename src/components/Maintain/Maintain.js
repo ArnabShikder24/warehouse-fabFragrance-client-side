@@ -23,7 +23,7 @@ const Maintain = e => {
         <div className='container pb-5 my-5'>
             <h2 className='text-center'>Manage Inventory</h2><div className='underline mb-5'></div>
             <h4 className='mb-5'>Add New Product Here <button onClick={() => navigate('/add-item')} className='btn-update'><span>Add New Item</span></button></h4>
-            <Table striped bordered>
+            <Table striped bordered responsive>
                 <thead>
                     <tr>
                     <th>ID</th>
