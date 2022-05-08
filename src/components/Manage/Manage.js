@@ -35,19 +35,19 @@ const Manage = () => {
         <div className='container my-5 pb-5'>
             <div className='manage'>
                 <Row>
-                    <Col>
+                    <Col md='6'>
                         <img src={img} alt="" />
                     </Col>
-                    <Col className='manage-info'>
+                    <Col className='manage-info' md='6'>
                         <h4>product Id: {manageId}</h4>
                         <h5>Product Name: {title}</h5>
                         <p>{discription}</p>
                         <h5>Price: ${price}</h5>
                         <Row>
-                            <Col>
+                            <Col md='6'>
                                 <h5>Quantity: {quantity}</h5>
                             </Col>
-                            <Col>
+                            <Col md='6'>
                                 <form onSubmit={reStock} className='reStock'>
                                     <input className='px-1' type="number" name='update' placeholder='Restock' required/>
                                     <input type="submit" value="Restock" />
