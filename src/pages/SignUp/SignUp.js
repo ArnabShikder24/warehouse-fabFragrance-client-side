@@ -30,7 +30,7 @@ const SignUp = () => {
         await updateProfile({ displayName: name });
         await sendEmailVerification();
         toast('Successful SignUp. Sent Email Verification email');
-        const {data} = await axios.post('http://localhost:5000/getToken', {email})
+        const {data} = await axios.post('https://damp-mesa-95348.herokuapp.com/getToken', {email})
         localStorage.setItem('accessToken', data.accessToken);
     }
 

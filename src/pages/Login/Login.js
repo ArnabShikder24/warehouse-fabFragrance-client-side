@@ -31,7 +31,7 @@ const Login = () => {
         const password = e.target.password.value;
 
         await signInWithEmailAndPassword(email, password);
-        const {data} = await axios.post('http://localhost:5000/getToken', {email})
+        const {data} = await axios.post('https://damp-mesa-95348.herokuapp.com/getToken', {email})
         localStorage.setItem('accessToken', data.accessToken);
         navigate(from, {replace: true});
     }

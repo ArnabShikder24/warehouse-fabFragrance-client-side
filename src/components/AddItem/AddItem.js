@@ -10,7 +10,7 @@ const AddItem = () => {
     const [user] = useAuthState(auth);
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/inventory', data)
+        axios.post('https://damp-mesa-95348.herokuapp.com/inventory', data)
         .then(res => {
             console.log(res.data)
             toast('Product Add Successful')

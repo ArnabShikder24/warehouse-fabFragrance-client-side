@@ -17,7 +17,7 @@ const MyItems = () => {
         const getItems = async () => {
             const email = user?.email;
             try {
-                const {data} = await axios.get(`http://localhost:5000/myItem?email=${email}`, {
+                const {data} = await axios.get(`https://damp-mesa-95348.herokuapp.com/myItem?email=${email}`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -37,7 +37,7 @@ const MyItems = () => {
     const handleDeleteItem = id => {
         const agree = window.confirm('Are You Sure?');
         if(agree) {
-            axios.delete(`http://localhost:5000/inventory/${id}`)
+            axios.delete(`https://damp-mesa-95348.herokuapp.com/inventory/${id}`)
             .then(res => {
                 const rest = myItems.filter(item => item._id !== id);
                 setMyItems(rest);

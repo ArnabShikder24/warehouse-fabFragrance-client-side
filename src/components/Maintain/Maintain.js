@@ -12,7 +12,7 @@ const Maintain = e => {
     const handleDeleteItem = id => {
         const agree = window.confirm('Are You Sure?');
         if(agree) {
-            axios.delete(`http://localhost:5000/inventory/${id}`)
+            axios.delete(`https://damp-mesa-95348.herokuapp.com/inventory/${id}`)
             .then(res => {
                 const rest = items.filter(item => item._id !== id);
                 setItems(rest);

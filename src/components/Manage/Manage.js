@@ -17,7 +17,7 @@ const Manage = () => {
 
     const delivered = id => {
         const newQuantity = quantity - 1;
-        axios.put(`http://localhost:5000/inventory/${id}`, {
+        axios.put(`https://damp-mesa-95348.herokuapp.com/inventory/${id}`, {
             quantity: newQuantity
         })
     }
@@ -26,7 +26,7 @@ const Manage = () => {
         e.preventDefault();
         const stockUpdate = e.target.update.value;
         const reStock = parseInt(quantity) + parseInt(stockUpdate);
-        axios.put(`http://localhost:5000/restock/${_id}`, {
+        axios.put(`https://damp-mesa-95348.herokuapp.com/restock/${_id}`, {
             quantity: reStock
         })
         e.target.reset();
